@@ -1,9 +1,11 @@
 import React from "react"
 import * as S from "./styled"
 
-const Result = () => (
-  <S.Wrapper>
-  </S.Wrapper>
-)
+const Properties = () => {
 
-export default Result
+  return (
+    <S.Wrapper>
+    </S.Wrapper>
+)}
+
+export default Properties
