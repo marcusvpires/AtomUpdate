@@ -15,6 +15,7 @@ export const Item = styled.li`
   font-size: 1rem;
   color: #dee0e4;
   display: flex;
+  align-items: center;
 `;
 
 export const Title = styled.span`
@@ -41,7 +42,7 @@ export const Unit = styled.span`
 
 export const EnergyLayer = styled.span`
   color: ${props => props.color};
-  padding: .2rem;
+  padding: .3rem;
   color: red;
   background-color: #090c11;
   border-radius: 5px;

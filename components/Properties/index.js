@@ -2,7 +2,7 @@ import React from "react"
 import * as S from "./styled"
 
 const Properties = ({atom}) => {
-  const energyLayer = [['K', 'red'],['L', 'red'],['M', 'red'],['N', 'red'],['O', 'red'],['P', 'red'],['Q', 'red'],]
+  const energyLayer = [['K', '#ff5353'],['L', '#ffa453'],['M', '#d9ff53'],['N', '#69ff53'],['O', '#53ffcf'],['P', '#5396ff'],['Q', '#9153ff'],]
 
   return (
     <S.Wrapper>
