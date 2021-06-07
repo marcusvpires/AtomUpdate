@@ -16,10 +16,11 @@ export const Item = styled.li`
   display: flex;
 `;
 
-export const Title = styled.p`
+export const Title = styled.span`
   font-weight: 600;
+  margin-right: .7rem;
 `;
 
-export const Value = styled.p`
+export const Value = styled.span`
 `;
 
