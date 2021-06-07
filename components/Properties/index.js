@@ -2,6 +2,7 @@ import React from "react"
 import * as S from "./styled"
 
 const Properties = ({atom}) => {
+  const [temperature, setTemperature] = React.useState(atom.melt);
   const energyLayer = [['K', '#d12c2c'],['L', '#de7a22'],['M', '#a0c41f'],['N', '#33bc1f'],['O', '#2ec79c'],['P', '#5396ff'],['Q', '#2e80ff'],]
 
   return (
@@ -45,6 +46,15 @@ const Properties = ({atom}) => {
 
       <S.Item>
         <S.Divider>Propriedades e características</S.Divider>
+      </S.Item>
+      <S.Item>
+        <S.Title>Ponto de fusão:</S.Title>
+        <S.Value>{temperature}</S.Value>
+        <S.Select>
+          <S.Option onClick={() => {setTemperature(atom.melt)}}>K° (Kelvin)</S.Option>
+          <S.Option onClick={() => {setTemperature((Number(atom.melt) - 273.15))}}>C° (Celsius)</S.Option>
+          <S.Option onClick={() => {setTemperature(((((Number(atom.melt)-273.15)/5)*9)+32).toFixed(10))}}>F° (Fahrenheit)</S.Option>
+        </S.Select>
       </S.Item>
     </S.Wrapper>
 )}

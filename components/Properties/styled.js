@@ -50,3 +50,16 @@ export const EnergyLayer = styled.span`
   font-weight: 600;
 `;
 
+export const Select = styled.select`
+  background-color: #000000;
+  color: #95989d;
+  border: none;
+  margin-top: auto;
+  cursor: pointer;
+`;
+
+export const Option = styled.option`
+  cursor: pointer;
+  color: #95989d;
+`;
+
