@@ -3,7 +3,7 @@ import * as S from "./styled"
 
 const Header = () => (
   <S.Wrapper>
-    <S.Title>Átomo - Estrutura e distribuição de Linus Pauling</S.Title>
+    <S.Title>Estrutura e propriedades do átomo</S.Title>
   </S.Wrapper>
 )
 

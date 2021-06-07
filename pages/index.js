@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import Atom from "../components/Atom";
 import Main from "../components/Main";
 import Header from "../components/Header";
-import Result from "../components/Result";
+import Properties from "../components/Properties";
 import Footer from "../components/Footer";
 
 export default function Home() {
@@ -33,7 +33,7 @@ export default function Home() {
       <Atom />
       <Main >
         <Header />
-        <Result />
+        <Properties />
         <Footer />
       </Main>
     </Layout>
