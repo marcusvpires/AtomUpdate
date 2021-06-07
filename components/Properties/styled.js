@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.ul`
   margin: 2rem;
-  padding: 2rem;
+  padding: 0 2rem 1.7rem;
   border-radius: 5px;
   background-color: black;
   flex-grow: 1;
@@ -11,6 +11,7 @@ export const Wrapper = styled.ul`
 `;
 
 export const Item = styled.li`
+  padding: .3rem 0;
   font-size: 1rem;
   color: #dee0e4;
   display: flex;
@@ -22,5 +23,30 @@ export const Title = styled.span`
 `;
 
 export const Value = styled.span`
+  margin-right: .3rem;
+`;
+
+export const Divider = styled.h3`
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #95989d;
+  padding: 1.5rem 0 .5rem;
+  border-bottom: 2px #585d65 solid;
+  width: 100%;
+`;
+
+export const Unit = styled.span`
+  color: #95989d;
+`;
+
+export const EnergyLayer = styled.span`
+  color: ${props => props.color};
+  padding: .2rem;
+  color: red;
+  background-color: #090c11;
+  border-radius: 5px;
+  font-size: .9rem;
+  margin-right: 0.3rem;
+  font-weight: 600;
 `;
 
