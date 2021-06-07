@@ -5,6 +5,10 @@ import * as S from "./styled"
 import * as I from "@styled-icons/boxicons-logos/"
 
 const Footer = () => {
+
+  const atom = {
+    
+  }
   
   return (
   <S.Wrapper>

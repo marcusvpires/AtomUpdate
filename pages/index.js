@@ -1,3 +1,4 @@
+import React from "react";
 import Head from 'next/head'
 
 import Layout from "../components/Layout";
@@ -8,6 +9,7 @@ import Result from "../components/Result";
 import Footer from "../components/Footer";
 
 export default function Home() {
+
   return (
     <Layout>
       <Head>
