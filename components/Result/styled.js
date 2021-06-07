@@ -6,5 +6,7 @@ export const Wrapper = styled.div`
   border-radius: 5px;
   background-color: black;
   flex-grow: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
 `;
 
