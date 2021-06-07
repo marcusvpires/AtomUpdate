@@ -2,6 +2,8 @@ import Head from 'next/head'
 
 import Layout from "../components/Layout";
 import Atom from "../components/Atom";
+import Main from "../components/Main";
+import Header from "../components/Header";
 
 export default function Home() {
   return (
@@ -24,8 +26,10 @@ export default function Home() {
         <meta property="twitter:description" content="Distribuição de Linus Pauling com ilustração gráfica do átomo. Similar a uma tabela periódica interativa, apresenta as camadas de energia de forma gráfica com os respectivos átomos . Além de apresentar o nome, simulo e número atômico"/>
         <meta property="twitter:image" content="https://atomo.vercel.app/banner.png"/>
       </Head>
-
       <Atom />
+      <Main >
+        <Header />
+      </Main>
     </Layout>
   )
 }
