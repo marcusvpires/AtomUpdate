@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import Atom from "../components/Atom";
 import Main from "../components/Main";
 import Header from "../components/Header";
+import Result from "../components/Result";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
       <Atom />
       <Main >
         <Header />
+        <Result />
       </Main>
     </Layout>
   )
