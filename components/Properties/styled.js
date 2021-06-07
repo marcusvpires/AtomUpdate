@@ -43,7 +43,6 @@ export const Unit = styled.span`
 export const EnergyLayer = styled.span`
   color: ${props => props.color};
   padding: .3rem;
-  color: red;
   background-color: #090c11;
   border-radius: 5px;
   font-size: .9rem;

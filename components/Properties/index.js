@@ -2,7 +2,7 @@ import React from "react"
 import * as S from "./styled"
 
 const Properties = ({atom}) => {
-  const energyLayer = [['K', '#ff5353'],['L', '#ffa453'],['M', '#d9ff53'],['N', '#69ff53'],['O', '#53ffcf'],['P', '#5396ff'],['Q', '#9153ff'],]
+  const energyLayer = [['K', '#d12c2c'],['L', '#de7a22'],['M', '#a0c41f'],['N', '#33bc1f'],['O', '#2ec79c'],['P', '#5396ff'],['Q', '#2e80ff'],]
 
   return (
     <S.Wrapper>
@@ -39,9 +39,7 @@ const Properties = ({atom}) => {
         <S.Title>Níveis de energia:</S.Title>
         {atom.electrons.map((energy, index) => {
           const b = energyLayer[index]
-          return (
-            <S.EnergyLayer color={b[1]}>{energy + b[0]}</S.EnergyLayer>
-          )
+          return ( <S.EnergyLayer color={b[1]}>{energy + b[0]}</S.EnergyLayer> )
         })}
       </S.Item>
 
