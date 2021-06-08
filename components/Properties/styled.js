@@ -16,6 +16,7 @@ export const Item = styled.li`
   color: #dee0e4;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 export const Title = styled.span`
@@ -62,4 +63,18 @@ export const Option = styled.option`
   cursor: pointer;
   color: #95989d;
 `;
+
+export const Dist = styled.span``;
+
+export const DistElevate = styled.span`
+  font-size: .5rem;
+  margin-bottom: auto;
+  margin-right: .3rem;
+`;
+
+export const DistContainer = styled.div`
+  margin-right: .3rem;
+  display: flex;
+`
+
 

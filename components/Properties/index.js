@@ -4,6 +4,7 @@ import * as S from "./styled"
 const Properties = ({atom}) => {
   const [melt, setMelt] = React.useState(atom.melt);
   const [boil, setBoil] = React.useState(atom.boil);
+  const [calor, setCalor] = React.useState([atom.heat.specific, 'J/kgK']);
   const energyLayer = [['K', '#d12c2c'],['L', '#de7a22'],['M', '#a0c41f'],['N', '#33bc1f'],['O', '#2ec79c'],['P', '#5396ff'],['Q', '#2e80ff'],]
 
   return (
@@ -27,6 +28,15 @@ const Properties = ({atom}) => {
       
       <S.Item>
         <S.Divider>Elétrosfera e estrutura atômica</S.Divider>
+      </S.Item>
+      <S.Item>
+        <S.Title>Distribuição Eletrônica de Linus Pauling:</S.Title>
+        <S.DistContainer>{atom.expandedconfig.split(' ').map(item => (
+          <>
+            <S.Dist>{item.substr(0, 2)}</S.Dist>
+            <S.DistElevate>{item.substr(2, item.length)}</S.DistElevate>
+          </>
+        ))}</S.DistContainer>
       </S.Item>
       <S.Item>
         <S.Title>Eletronegatividade:</S.Title>
@@ -64,6 +74,21 @@ const Properties = ({atom}) => {
           <S.Option onClick={() => {setBoil(atom.boil)}}>K° (Kelvin)</S.Option>
           <S.Option onClick={() => {setBoil((Number(atom.boil) - 273.15))}}>C° (Celsius)</S.Option>
           <S.Option onClick={() => {setBoil(((((Number(atom.boil)-273.15)/5)*9)+32).toFixed(10))}}>F° (Fahrenheit)</S.Option>
+        </S.Select>
+      </S.Item>
+      <S.Item>
+        <S.Title>Condutividade Térmica:</S.Title>
+        <S.Value>{atom.conductivity.thermal}</S.Value>
+        <S.Unit>W/mk</S.Unit>
+      </S.Item>
+      <S.Item>
+        <S.Title>Calor:</S.Title>
+        <S.Value>{calor[0]}</S.Value>
+        <S.Unit>{calor[1]}</S.Unit>
+        <S.Select>
+          <S.Option onClick={() => {setCalor([atom.heat.specific, 'J/kgK'])}}>Específico</S.Option>
+          <S.Option onClick={() => {setCalor([atom.heat.vaporization, 'kJ/mol'])}}>Vaporização</S.Option>
+          <S.Option onClick={() => {setCalor([atom.heat.fusion, 'kJ/mol'])}}>Fusão</S.Option>
         </S.Select>
       </S.Item>
     </S.Wrapper>
