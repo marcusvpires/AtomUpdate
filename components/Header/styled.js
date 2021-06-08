@@ -19,6 +19,8 @@ export const Title = styled.h1`
 `;
 
 export const Search = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export const SearchBar = styled.input`
@@ -27,5 +29,15 @@ export const SearchBar = styled.input`
   background-color: black;
   border-radius: 5px 0 0 5px;
   border: 1px #585d65 solid;
-  width: 12rem;
+  width: 15rem;
+`;
+
+export const Icon = styled.div`
+  height: 2.1rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 0.4rem;
+  background-color: #1a4b8c;
+  border-radius: 0 5px 5px 0;
 `;
