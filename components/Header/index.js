@@ -6,14 +6,21 @@ const Header = () => {
   const [searchView, setSearchView] = React.useState(false)
   return (
   <S.Wrapper>
-    <S.Title>Estrutura e propriedades do átomo</S.Title>
-    <S.Search >
+    <S.Title searchView={searchView}>Estrutura e propriedades do átomo</S.Title>
+    <S.Search searchView={searchView} >
       <S.SearchBar 
+        searchView={searchView}
+        onFocus={() => {setSearchView(true)}}
+        onBlur={() => {setSearchView(false)}}
         type="text"
         placeholder="Nome; [Simbolo]; número atômico..."
       />
-      <S.Icon>
-        <I.Search />
+      <S.Icon searchView={searchView}>
+        { searchView ? 
+          <I.Exit onClick={() => {setSearchView(false)}}>X</I.Exit> :
+          <I.Search onClick={() => {setSearchView(true)}} />
+        }
+        
       </S.Icon>
     </S.Search>
   </S.Wrapper>

@@ -16,11 +16,18 @@ export const Wrapper = styled.div`
 export const Title = styled.h1`
   font-size: 1.2rem;
   font-weight: 600;
+
+  ${props => props.searchView && `
+    display: none;
+  `}
 `;
 
 export const Search = styled.div`
   display: flex;
   align-items: center;
+  ${props => props.searchView && `
+    width: 100%;
+  `}
 `;
 
 export const SearchBar = styled.input`
@@ -30,6 +37,17 @@ export const SearchBar = styled.input`
   border-radius: 5px 0 0 5px;
   border: 1px #585d65 solid;
   width: 15rem;
+
+  &:focus {
+    outline: none;
+    border: 1px solid #1a4b8c ;
+  }
+
+  ${props => props.searchView && `
+    width: 100%;
+    padding: .8rem 1.2rem;
+    font-size: 1rem;
+  `}
 `;
 
 export const Icon = styled.div`
@@ -41,6 +59,13 @@ export const Icon = styled.div`
   background-color: #1a4b8c;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
+
+  ${props => props.searchView && `
+    height: 2.9rem;
+    width: 2.9rem;
+    padding: .5rem;
+  `}
+
   &:hover {
     background-color: #1f5baa;
   }
