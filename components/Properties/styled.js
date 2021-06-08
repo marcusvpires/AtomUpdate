@@ -5,7 +5,7 @@ export const Wrapper = styled.ul`
   padding: 0 2rem 1.7rem;
   border-radius: 5px;
   background-color: black;
-  flex-grow: 1;
+  height: calc(100vh - 14rem);
   overflow-y: auto;
   scrollbar-width: thin;
 `;
