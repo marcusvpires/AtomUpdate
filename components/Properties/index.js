@@ -2,7 +2,8 @@ import React from "react"
 import * as S from "./styled"
 
 const Properties = ({atom}) => {
-  const [temperature, setTemperature] = React.useState(atom.melt);
+  const [melt, setMelt] = React.useState(atom.melt);
+  const [boil, setBoil] = React.useState(atom.boil);
   const energyLayer = [['K', '#d12c2c'],['L', '#de7a22'],['M', '#a0c41f'],['N', '#33bc1f'],['O', '#2ec79c'],['P', '#5396ff'],['Q', '#2e80ff'],]
 
   return (
@@ -49,11 +50,20 @@ const Properties = ({atom}) => {
       </S.Item>
       <S.Item>
         <S.Title>Ponto de fusão:</S.Title>
-        <S.Value>{temperature}</S.Value>
+        <S.Value>{melt}</S.Value>
         <S.Select>
-          <S.Option onClick={() => {setTemperature(atom.melt)}}>K° (Kelvin)</S.Option>
-          <S.Option onClick={() => {setTemperature((Number(atom.melt) - 273.15))}}>C° (Celsius)</S.Option>
-          <S.Option onClick={() => {setTemperature(((((Number(atom.melt)-273.15)/5)*9)+32).toFixed(10))}}>F° (Fahrenheit)</S.Option>
+          <S.Option onClick={() => {setMelt(atom.melt)}}>K° (Kelvin)</S.Option>
+          <S.Option onClick={() => {setMelt((Number(atom.melt) - 273.15))}}>C° (Celsius)</S.Option>
+          <S.Option onClick={() => {setMelt(((((Number(atom.melt)-273.15)/5)*9)+32).toFixed(10))}}>F° (Fahrenheit)</S.Option>
+        </S.Select>
+      </S.Item>
+      <S.Item>
+        <S.Title>Ponto de ebulição:</S.Title>
+        <S.Value>{boil}</S.Value>
+        <S.Select>
+          <S.Option onClick={() => {setBoil(atom.boil)}}>K° (Kelvin)</S.Option>
+          <S.Option onClick={() => {setBoil((Number(atom.boil) - 273.15))}}>C° (Celsius)</S.Option>
+          <S.Option onClick={() => {setBoil(((((Number(atom.boil)-273.15)/5)*9)+32).toFixed(10))}}>F° (Fahrenheit)</S.Option>
         </S.Select>
       </S.Item>
     </S.Wrapper>
