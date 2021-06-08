@@ -3,6 +3,7 @@ import * as I from "@styled-icons/boxicons-regular/"
 import * as S from "./styled"
 
 const Header = () => {
+  const [searchView, setSearchView] = React.useState(false)
   return (
   <S.Wrapper>
     <S.Title>Estrutura e propriedades do átomo</S.Title>

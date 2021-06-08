@@ -40,4 +40,8 @@ export const Icon = styled.div`
   padding: 0.4rem;
   background-color: #1a4b8c;
   border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  &:hover {
+    background-color: #1f5baa;
+  }
 `;
