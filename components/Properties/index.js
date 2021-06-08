@@ -5,6 +5,8 @@ const Properties = ({atom}) => {
   const [melt, setMelt] = React.useState(atom.melt);
   const [boil, setBoil] = React.useState(atom.boil);
   const [calor, setCalor] = React.useState([atom.heat.specific, 'J/kgK']);
+  const [radius, setRadius] = React.useState(atom.radius.calculated);
+  const [abundance, setAbundance] = React.useState(atom.abundance.universe);
   const energyLayer = [['K', '#d12c2c'],['L', '#de7a22'],['M', '#a0c41f'],['N', '#33bc1f'],['O', '#2ec79c'],['P', '#5396ff'],['Q', '#2e80ff'],]
 
   return (
@@ -15,6 +17,10 @@ const Properties = ({atom}) => {
       <S.Item>
         <S.Title>Nome:</S.Title>
         <S.Value>{atom.name}</S.Value>
+      </S.Item>
+      <S.Item>
+        <S.Title>Simbolo:</S.Title>
+        <S.Value>{atom.symbol}</S.Value>
       </S.Item>
       <S.Item>
         <S.Title>Massa Atômica:</S.Title>
@@ -91,6 +97,37 @@ const Properties = ({atom}) => {
           <S.Option onClick={() => {setCalor([atom.heat.fusion, 'kJ/mol'])}}>Fusão</S.Option>
         </S.Select>
       </S.Item>
+      <S.Item>
+        <S.Title>Raio:</S.Title>
+        <S.Value>{radius}</S.Value>
+        <S.Unit>pm</S.Unit>
+        <S.Select>
+          <S.Option onClick={() => {setRadius(atom.radius.calculated)}}>Calculado</S.Option>
+          <S.Option onClick={() => {setRadius(atom.radius.empirical)}}>Empírico</S.Option>
+          <S.Option onClick={() => {setRadius(atom.radius.covalent)}}>Covalente</S.Option>
+          <S.Option onClick={() => {setRadius(atom.radius.vanderwaals)}}>Van der Waals</S.Option>
+        </S.Select>
+      </S.Item>
+      <S.Item>
+        <S.Title>Densidade:</S.Title>
+        <S.Value>{atom.density.stp}</S.Value>
+        <S.Unit>kg/m³</S.Unit>
+       
+      </S.Item>
+      <S.Item>
+        <S.Title>Abundância:</S.Title>
+        <S.Value>{abundance}</S.Value>
+        <S.Unit>%</S.Unit>
+        <S.Select>
+          <S.Option onClick={() => {setAbundance(atom.abundance.universe)}}>Universo</S.Option>
+          <S.Option onClick={() => {setAbundance(atom.abundance.solar)}}>Sistema solar</S.Option>
+          <S.Option onClick={() => {setAbundance(atom.abundance.meteor)}}>Meteoro</S.Option>
+          <S.Option onClick={() => {setAbundance(atom.abundance.crust)}}>Crosta da terra</S.Option>
+          <S.Option onClick={() => {setAbundance(atom.abundance.ocean)}}>Oceano</S.Option>
+          <S.Option onClick={() => {setAbundance(atom.abundance.human)}}>Seres humanos</S.Option>
+        </S.Select>
+      </S.Item>
+
     </S.Wrapper>
 )}
 
