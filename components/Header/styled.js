@@ -11,7 +11,10 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   position: relative;
 
-  @media(max-width: 450px) { display: none; }
+  @media(max-width: 1400px) {
+    padding: 0 1rem;
+  }
+
 `;
 
 export const Title = styled.h1`
@@ -21,6 +24,10 @@ export const Title = styled.h1`
   ${props => props.searchView && `
     display: none;
   `}
+
+  @media(max-width: 1400px) {
+    display: none;
+  }
 `;
 
 export const Search = styled.div`
@@ -28,7 +35,11 @@ export const Search = styled.div`
   align-items: center;
   ${props => props.searchView && `
     width: 100%;
-  `}
+    `}
+
+  @media(max-width: 1400px) {
+    width: 100%;
+  }
 `;
 
 export const SearchBar = styled.input`
@@ -49,6 +60,17 @@ export const SearchBar = styled.input`
     padding: .8rem 1.2rem;
     font-size: 1rem;
   `}
+  @media(max-width: 1400px) {
+    width: 100%;
+    padding: .8rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  @media(max-width: 1400px) {
+    width: 100%;
+    padding: .8rem 1.2rem;
+    font-size: .9rem;
+  }
 `;
 
 export const Icon = styled.div`
@@ -69,5 +91,11 @@ export const Icon = styled.div`
 
   &:hover {
     background-color: #1f5baa;
+  }
+
+  @media(max-width: 1400px) {
+    height: 2.9rem;
+    width: 2.9rem;
+    padding: .5rem;
   }
 `;
