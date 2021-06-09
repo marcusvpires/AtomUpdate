@@ -1,5 +1,6 @@
 import React from "react";
 import searchDB from "./searchDB";
+import db from "../../db";
 import Select from "./Select";
 import * as I from "@styled-icons/boxicons-regular/";
 import * as S from "./styled";
@@ -18,9 +19,7 @@ const Header = ({ setAtom }) => {
           searchView={searchView}
           onFocus={() => {
             setSearchView(true);
-          }}
-          onBlur={() => {
-            setSearchView(false);
+            setSearch(db)
           }}
           onChange={(ev) => {
             const value = ev.target.value;
@@ -41,31 +40,41 @@ const Header = ({ setAtom }) => {
                   return false;
                 })
               );
+            } else {
+              setSearch(searchDB);
             }
           }}
           value={input}
           type="text"
           placeholder="Nome; [Simbolo]; número atômico..."
         />
-        <S.Icon searchView={searchView}>
-          {searchView ? (
-            <I.Exit
-              onClick={() => {
-                setSearchView(false);
-              }}
-            >
-              X
-            </I.Exit>
-          ) : (
-            <I.Search
-              onClick={() => {
-                setSearchView(true);
-              }}
-            />
-          )}
-        </S.Icon>
+        {searchView ? (
+          <S.Icon
+            searchView={true}
+            onClick={() => {
+              setSearchView(false);
+            }}
+          >
+            <I.Exit />
+          </S.Icon>
+        ) : (
+          <S.Icon
+            onClick={() => {
+              setSearchView(true);
+              setSearch(db)
+            }}
+          >
+            <I.Search />
+          </S.Icon>
+        )}
       </S.Search>
-      <Select search={search} setAtom={setAtom} searchView={searchView} />
+      <Select
+        search={search}
+        setAtom={setAtom}
+        searchView={searchView}
+        setSearchView={setSearchView}
+        setInput={setInput}
+      />
     </S.Wrapper>
   );
 };

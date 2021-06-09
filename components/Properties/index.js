@@ -4,8 +4,20 @@ import * as S from "./styled"
 const Properties = ({atom}) => {
   const [melt, setMelt] = React.useState(atom.melt);
   const [boil, setBoil] = React.useState(atom.boil);
-  const [calor, setCalor] = React.useState([atom.heat.specific, 'J/kgK']);
-  const [radius, setRadius] = React.useState(atom.radius.calculated);
+  const [calor, setCalor] = React.useState(() => {
+    if(atom.heat.specific) {
+      return [atom.heat.specific, 'J/kgK']
+    } else {
+      return ['Indefinido', '']
+    }
+  });
+  const [radius, setRadius] = React.useState(() => {
+    if(atom.radius.calculated) {
+      return atom.radius.calculated
+    } else {
+      return 'Indefinido'
+    }
+  });
   const [abundance, setAbundance] = React.useState(atom.abundance.universe);
   const energyLayer = [['K', '#d12c2c'],['L', '#de7a22'],['M', '#a0c41f'],['N', '#33bc1f'],['O', '#2ec79c'],['P', '#5396ff'],['Q', '#2e80ff'],]
 
@@ -27,6 +39,10 @@ const Properties = ({atom}) => {
         <S.Value>{atom.weight}</S.Value>
         <S.Unit>u</S.Unit>
       </S.Item>
+      <S.Item key="weight">
+        <S.Title>Elétrons na camada de valência:</S.Title>
+        <S.Value>{atom.valence ? atom.valence : "Indefinido"}</S.Value>
+      </S.Item>
       <S.Item key="atomic">
         <S.Title>Número Atômica:</S.Title>
         <S.Value>{atom.atomic}</S.Value>
@@ -46,13 +62,17 @@ const Properties = ({atom}) => {
       </S.Item>
       <S.Item key="electroneg">
         <S.Title>Eletronegatividade:</S.Title>
-        <S.Value>{atom.electroneg}</S.Value>
+        <S.Value>{atom.electroneg ? atom.electroneg : "Indefinido"}</S.Value>
       </S.Item>
       <S.Item key="electric">
         <S.Title>Condutividade elétrica:</S.Title>
-        <S.Value>{atom.conductivity.electric ? atom.conductivity.electric : '0'}</S.Value>
-        <S.Unit>MS/m</S.Unit>
-      </S.Item>
+        {atom?.conductivity?.electric ? (
+          <>
+            <S.Value>{atom.conductivity.electric}</S.Value>
+            <S.Unit>MS/m</S.Unit>
+          </>
+        ) : 'Indefinido'}
+      </S.Item> 
       <S.Item>
         <S.Title>Níveis de energia:</S.Title>
         {atom.electrons.map((energy, index) => {
@@ -66,52 +86,74 @@ const Properties = ({atom}) => {
       </S.Item>
       <S.Item key="melt">
         <S.Title>Ponto de fusão:</S.Title>
-        <S.Value>{melt}</S.Value>
-        <S.Select>
-          <S.Option onClick={() => {setMelt(atom.melt)}}>K° (Kelvin)</S.Option>
-          <S.Option onClick={() => {setMelt((Number(atom.melt) - 273.15))}}>C° (Celsius)</S.Option>
-          <S.Option onClick={() => {setMelt(((((Number(atom.melt)-273.15)/5)*9)+32).toFixed(10))}}>F° (Fahrenheit)</S.Option>
-        </S.Select>
+        {atom.melt ? (
+          <>
+            <S.Value>{melt}</S.Value>
+            <S.Select>
+              <S.Option onClick={() => {setMelt(atom.melt)}}>K° (Kelvin)</S.Option>
+              <S.Option onClick={() => {setMelt((Number(atom.melt) - 273.15))}}>C° (Celsius)</S.Option>
+              <S.Option onClick={() => {setMelt(((((Number(atom.melt)-273.15)/5)*9)+32).toFixed(10))}}>F° (Fahrenheit)</S.Option>
+            </S.Select>
+          </>
+        ) : 'Indefinido'}
       </S.Item>
       <S.Item key="boil">
         <S.Title>Ponto de ebulição:</S.Title>
-        <S.Value>{boil}</S.Value>
-        <S.Select>
-          <S.Option onClick={() => {setBoil(atom.boil)}}>K° (Kelvin)</S.Option>
-          <S.Option onClick={() => {setBoil((Number(atom.boil) - 273.15))}}>C° (Celsius)</S.Option>
-          <S.Option onClick={() => {setBoil(((((Number(atom.boil)-273.15)/5)*9)+32).toFixed(10))}}>F° (Fahrenheit)</S.Option>
-        </S.Select>
+        {atom.boil ? (
+          <>
+            <S.Value>{boil}</S.Value>
+            <S.Select>
+              <S.Option onClick={() => {setBoil(atom.boil)}}>K° (Kelvin)</S.Option>
+              <S.Option onClick={() => {setBoil((Number(atom.boil) - 273.15))}}>C° (Celsius)</S.Option>
+              <S.Option onClick={() => {setBoil(((((Number(atom.boil)-273.15)/5)*9)+32).toFixed(10))}}>F° (Fahrenheit)</S.Option>
+            </S.Select>
+          </>
+        ) : 'Indefinido'}
       </S.Item>
       <S.Item key="thermal">
         <S.Title>Condutividade Térmica:</S.Title>
-        <S.Value>{atom.conductivity.thermal}</S.Value>
-        <S.Unit>W/mk</S.Unit>
+        {atom?.conductivity?.thermal ? (
+          <>
+            <S.Value>{atom.conductivity.thermal}</S.Value>
+            <S.Unit>W/mk</S.Unit>
+          </>
+        ) : 'Indefinido'}
       </S.Item>
       <S.Item key="heat">
         <S.Title>Calor:</S.Title>
         <S.Value>{calor[0]}</S.Value>
         <S.Unit>{calor[1]}</S.Unit>
-        <S.Select>
-          <S.Option onClick={() => {setCalor([atom.heat.specific, 'J/kgK'])}}>Específico</S.Option>
-          <S.Option onClick={() => {setCalor([atom.heat.vaporization, 'kJ/mol'])}}>Vaporização</S.Option>
-          <S.Option onClick={() => {setCalor([atom.heat.fusion, 'kJ/mol'])}}>Fusão</S.Option>
-        </S.Select>
+        {atom.heat && (
+          <S.Select>
+            {atom.heat.specific && <S.Option onClick={() => {setCalor([atom.heat.specific, 'J/kgK'])}}>Específico</S.Option>}
+            {atom.heat.vaporization && <S.Option onClick={() => {setCalor([atom.heat.vaporization, 'kJ/mol'])}}>Vaporização</S.Option>}
+            {atom.heat.fusion && <S.Option onClick={() => {setCalor([atom.heat.fusion, 'kJ/mol'])}}>Fusão</S.Option>}
+          </S.Select>
+        )}
       </S.Item>
       <S.Item key="radius">
         <S.Title>Raio:</S.Title>
-        <S.Value>{radius}</S.Value>
-        <S.Unit>pm</S.Unit>
-        <S.Select>
-          <S.Option onClick={() => {setRadius(atom.radius.calculated)}}>Calculado</S.Option>
-          <S.Option onClick={() => {setRadius(atom.radius.empirical)}}>Empírico</S.Option>
-          <S.Option onClick={() => {setRadius(atom.radius.covalent)}}>Covalente</S.Option>
-          <S.Option onClick={() => {setRadius(atom.radius.vanderwaals)}}>Van der Waals</S.Option>
-        </S.Select>
+        {atom.radius ? (
+          <>
+            <S.Value>{radius}</S.Value>
+            <S.Unit>pm</S.Unit>
+            <S.Select>
+              {atom.radius.calculated && <S.Option onClick={() => {setRadius(atom.radius.calculated)}}>Calculado</S.Option>}
+              {atom.radius.empirical && <S.Option onClick={() => {setRadius(atom.radius.empirical)}}>Empírico</S.Option>}
+              {atom.radius.covalent && <S.Option onClick={() => {setRadius(atom.radius.covalent)}}>Covalente</S.Option>}
+              {atom.radius.vanderwaals && <S.Option onClick={() => {setRadius(atom.radius.vanderwaals)}}>Van der Waals</S.Option>}
+            </S.Select>
+          </>
+        ) : 'Indefinido'}
       </S.Item>
       <S.Item key="density">
         <S.Title>Densidade:</S.Title>
-        <S.Value>{atom.density.stp}</S.Value>
-        <S.Unit>kg/m³</S.Unit>
+        {atom?.density?.stp ? (
+          <>
+          <S.Value>{atom.density.stp}</S.Value>
+          <S.Unit>kg/m³</S.Unit>
+          </>
+        ) : 'Indefinido'}
        
       </S.Item>
       <S.Item key="abundance">
