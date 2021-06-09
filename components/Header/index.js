@@ -7,7 +7,7 @@ import * as S from "./styled";
 const Header = () => {
   const [searchView, setSearchView] = React.useState(false);
   const [input, setInput] = React.useState();
-  const [search, setSearch] = React.useState();
+  const [search, setSearch] = React.useState([]);
   return (
     <S.Wrapper>
       <S.Title searchView={searchView}>
@@ -65,7 +65,7 @@ const Header = () => {
           )}
         </S.Icon>
       </S.Search>
-      <Select />
+      <Select search={search}/>
     </S.Wrapper>
   );
 };
