@@ -3,7 +3,7 @@ import * as S from "./styled";
 import * as I from "@styled-icons/boxicons-regular/";
 
 const Atom = ({ layers }) => {
-  const [play, setPlay] = React.useState(false);
+  const [play, setPlay] = React.useState(true);
   const size = [2, 1.8, 1.7, 1.4, 1.3, 1.1, 1,  .9]
 
   return (

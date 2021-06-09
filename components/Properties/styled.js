@@ -79,7 +79,7 @@ export const Option = styled.option`
 
 export const Dist = styled.span``;
 
-export const DistElevate = styled.span`
+export const DistElevate = styled.div`
   font-size: .5rem;
   margin-bottom: auto;
   margin-right: .3rem;
@@ -88,6 +88,7 @@ export const DistElevate = styled.span`
 export const DistContainer = styled.div`
   margin-right: .3rem;
   display: flex;
+  flex-wrap: wrap;
 `
 
 
