@@ -7,7 +7,10 @@ export const Wrapper = styled.div`
   width: calc(100vw - 100vh - 3px);
   background-color: black;
   left: 0;
-  display: none;
+
+  ${props => !props.searchView && `
+    display: none;
+  `}
 `;
 
 export const Select = styled.div`

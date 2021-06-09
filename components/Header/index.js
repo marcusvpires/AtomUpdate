@@ -1,10 +1,10 @@
 import React from "react";
 import searchDB from "./searchDB";
-import Select from './Select'
+import Select from "./Select";
 import * as I from "@styled-icons/boxicons-regular/";
 import * as S from "./styled";
 
-const Header = () => {
+const Header = ({ setAtom }) => {
   const [searchView, setSearchView] = React.useState(false);
   const [input, setInput] = React.useState();
   const [search, setSearch] = React.useState([]);
@@ -65,7 +65,7 @@ const Header = () => {
           )}
         </S.Icon>
       </S.Search>
-      <Select search={search}/>
+      <Select search={search} setAtom={setAtom} searchView={searchView} />
     </S.Wrapper>
   );
 };

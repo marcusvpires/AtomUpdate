@@ -10,7 +10,6 @@ import Footer from "../components/Footer";
 
 export default function Home() {
 
-
   const [atom, setAtom] = React.useState({
     atomic: "1",
     symbol: "H",
@@ -71,7 +70,7 @@ export default function Home() {
       </Head>
       <Atom />
       <Main >
-        <Header />
+        <Header setAtom={setAtom}/>
         <Properties atom={atom} />
         <Footer />
       </Main>

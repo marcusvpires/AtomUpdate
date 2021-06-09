@@ -2,16 +2,15 @@ import React from "react";
 import db from '../../../db'
 import * as S from "./styled";
 
-const Select = ({ search }) => {
+const Select = ({ search, setAtom, searchView }) => {
   return (
-    <S.Wrapper>
+    <S.Wrapper searchView={searchView}>
       <S.Select>
       {search.map((_, index) => {
         if (_) {
           const element = db[Number(index)]
-          console.log(element)
           return (
-            <S.Element key={index} onClick={() => {console.log('Átomo:', index)}}>
+            <S.Element key={index} onClick={() => {setAtom(element)}}>
               <S.Symbol><span>{element.symbol}</span></S.Symbol>
               {element.name}
             </S.Element>
