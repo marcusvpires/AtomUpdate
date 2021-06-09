@@ -46,6 +46,13 @@ export const Name = styled.div`
   }
 `;
 
+export const Dev = styled.span`
+
+  @media(max-width: 1360px) {
+    display: none;
+  }
+`;
+
 export const Social = styled.div`
   align-items: center;
   display: flex;

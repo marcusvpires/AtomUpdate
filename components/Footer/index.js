@@ -22,7 +22,7 @@ const Footer = () => {
         />
       </S.Image>
       <S.ProfileInfo>
-        <S.Name>Desenvolvido por Marcus Vinícius</S.Name>
+        <S.Name><S.Dev>Desenvolvido por </S.Dev>Marcus Vinícius</S.Name>
         <S.Social>
           <S.Icon href='https://twitter.com/m4rcus_vin1cius' target="_blank" >
             <I.Twitter />

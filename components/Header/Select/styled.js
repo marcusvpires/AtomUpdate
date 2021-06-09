@@ -19,7 +19,7 @@ export const Select = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
   overflow: auto;
-  max-height: calc(100vw - 100vh - 19rem);
+  max-height: calc(100vh - 167px);
   scrollbar-width: thin;
 `;
 
