@@ -11,28 +11,28 @@ const Properties = ({atom}) => {
 
   return (
     <S.Wrapper>
-      <S.Item>
+      <S.Item key="basicInformation">
         <S.Divider>Informações básicas</S.Divider>
       </S.Item>
-      <S.Item>
+      <S.Item key="name">
         <S.Title>Nome:</S.Title>
         <S.Value>{atom.name}</S.Value>
       </S.Item>
-      <S.Item>
+      <S.Item key="symbol">
         <S.Title>Simbolo:</S.Title>
         <S.Value>{atom.symbol}</S.Value>
       </S.Item>
-      <S.Item>
+      <S.Item key="weight">
         <S.Title>Massa Atômica:</S.Title>
         <S.Value>{atom.weight}</S.Value>
         <S.Unit>u</S.Unit>
       </S.Item>
-      <S.Item>
+      <S.Item key="atomic">
         <S.Title>Número Atômica:</S.Title>
         <S.Value>{atom.atomic}</S.Value>
       </S.Item>
       
-      <S.Item>
+      <S.Item key="eletroEstrutura">
         <S.Divider>Elétrosfera e estrutura atômica</S.Divider>
       </S.Item>
       <S.Item>
@@ -44,11 +44,11 @@ const Properties = ({atom}) => {
           </>
         ))}</S.DistContainer>
       </S.Item>
-      <S.Item>
+      <S.Item key="electroneg">
         <S.Title>Eletronegatividade:</S.Title>
         <S.Value>{atom.electroneg}</S.Value>
       </S.Item>
-      <S.Item>
+      <S.Item key="electric">
         <S.Title>Condutividade elétrica:</S.Title>
         <S.Value>{atom.conductivity.electric ? atom.conductivity.electric : '0'}</S.Value>
         <S.Unit>MS/m</S.Unit>
@@ -61,10 +61,10 @@ const Properties = ({atom}) => {
         })}
       </S.Item>
 
-      <S.Item>
+      <S.Item key="proprietCaracteristcs">
         <S.Divider>Propriedades e características</S.Divider>
       </S.Item>
-      <S.Item>
+      <S.Item key="melt">
         <S.Title>Ponto de fusão:</S.Title>
         <S.Value>{melt}</S.Value>
         <S.Select>
@@ -73,7 +73,7 @@ const Properties = ({atom}) => {
           <S.Option onClick={() => {setMelt(((((Number(atom.melt)-273.15)/5)*9)+32).toFixed(10))}}>F° (Fahrenheit)</S.Option>
         </S.Select>
       </S.Item>
-      <S.Item>
+      <S.Item key="boil">
         <S.Title>Ponto de ebulição:</S.Title>
         <S.Value>{boil}</S.Value>
         <S.Select>
@@ -82,12 +82,12 @@ const Properties = ({atom}) => {
           <S.Option onClick={() => {setBoil(((((Number(atom.boil)-273.15)/5)*9)+32).toFixed(10))}}>F° (Fahrenheit)</S.Option>
         </S.Select>
       </S.Item>
-      <S.Item>
+      <S.Item key="thermal">
         <S.Title>Condutividade Térmica:</S.Title>
         <S.Value>{atom.conductivity.thermal}</S.Value>
         <S.Unit>W/mk</S.Unit>
       </S.Item>
-      <S.Item>
+      <S.Item key="heat">
         <S.Title>Calor:</S.Title>
         <S.Value>{calor[0]}</S.Value>
         <S.Unit>{calor[1]}</S.Unit>
@@ -97,7 +97,7 @@ const Properties = ({atom}) => {
           <S.Option onClick={() => {setCalor([atom.heat.fusion, 'kJ/mol'])}}>Fusão</S.Option>
         </S.Select>
       </S.Item>
-      <S.Item>
+      <S.Item key="radius">
         <S.Title>Raio:</S.Title>
         <S.Value>{radius}</S.Value>
         <S.Unit>pm</S.Unit>
@@ -108,13 +108,13 @@ const Properties = ({atom}) => {
           <S.Option onClick={() => {setRadius(atom.radius.vanderwaals)}}>Van der Waals</S.Option>
         </S.Select>
       </S.Item>
-      <S.Item>
+      <S.Item key="density">
         <S.Title>Densidade:</S.Title>
         <S.Value>{atom.density.stp}</S.Value>
         <S.Unit>kg/m³</S.Unit>
        
       </S.Item>
-      <S.Item>
+      <S.Item key="abundance">
         <S.Title>Abundância:</S.Title>
         <S.Value>{abundance}</S.Value>
         <S.Unit>%</S.Unit>

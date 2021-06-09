@@ -7,23 +7,24 @@ export const Wrapper = styled.div`
   width: calc(100vw - 100vh - 3px);
   background-color: black;
   left: 0;
+  display: none;
 `;
 
 export const Select = styled.div`
-padding: .4rem;
-display: grid;
-grid-template-columns: repeat(3,1fr);
-grid-gap: 5px;
-overflow: auto;
-max-height: calc(100vw - 100vh - 19rem);
-scrollbar-width: thin;
+  padding: 0.4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  overflow: auto;
+  max-height: calc(100vw - 100vh - 19rem);
+  scrollbar-width: thin;
 `;
 
 export const Element = styled.div`
   background-color: #090c10;
   border-radius: 5px;
-  padding: .2rem 1rem .2rem .2rem;
-  margin: .2rem;
+  padding: 0.2rem 1rem 0.2rem 0.2rem;
+  margin: 0.2rem;
   color: #dee0e4;
   font-size: 1rem;
   height: 2.8rem;
@@ -31,7 +32,7 @@ export const Element = styled.div`
   align-items: center;
   cursor: pointer;
   transition: 200ms;
-  
+
   &:hover {
     transform: scale(1.05);
   }
@@ -47,7 +48,5 @@ export const Symbol = styled.div`
   font-size: 1.1rem;
   font-weight: 600;
   background-color: #113769;
-  margin-right: .8rem;
+  margin-right: 0.8rem;
 `;
-
-
