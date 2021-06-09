@@ -10,7 +10,7 @@ const Header = ({ setAtom }) => {
   const [input, setInput] = React.useState();
   const [search, setSearch] = React.useState([]);
   return (
-    <S.Wrapper>
+    <S.Wrapper searchView={searchView}>
       <S.Title searchView={searchView}>
         Estrutura e propriedades do átomo
       </S.Title>

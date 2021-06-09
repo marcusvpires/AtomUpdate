@@ -12,8 +12,17 @@ export const Wrapper = styled.div`
   position: relative;
 
   @media(max-width: 1400px) {
+    background-color: #0b0e13;
     padding: 0 1rem;
+    ${props => props.searchView && `
+      position: fixed;
+      height: 100vh;
+      width: 100vw;
+      top: 0;
+      z-index: 100;
+    `}
   }
+
 
 `;
 
@@ -35,10 +44,16 @@ export const Search = styled.div`
   align-items: center;
   ${props => props.searchView && `
     width: 100%;
-    `}
+  `}
 
   @media(max-width: 1400px) {
     width: 100%;
+    padding: 0 1rem;
+    ${props => props.searchView && `
+      position: absolute;
+      top: 1rem;
+      left: 0;
+    `}
   }
 `;
 

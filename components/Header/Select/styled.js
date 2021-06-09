@@ -10,7 +10,18 @@ export const Wrapper = styled.div`
 
   ${props => !props.searchView && `
     display: none;
-  `}
+    `}
+
+  @media(max-width: 1400px) {
+    ${props => props.searchView && `
+      position: absolute;
+      height: calc(100vh - 6rem);
+      width: calc(100vw - 2rem);
+      top: 5rem;
+      z-index: 101;
+      left: 1rem;
+    `}
+  }
 `;
 
 export const Select = styled.div`
@@ -24,6 +35,16 @@ export const Select = styled.div`
  
   @media(max-width: 1300px) {
     grid-template-columns: repeat(2,1fr);
+  }
+
+  @media(max-width: 1400px) {
+    border-radius: 5px;
+    ${props => props.searchView && `
+      max-height: calc(100vh - 6rem);
+    `}
+  }
+  @media(max-width: 818px) {
+    grid-template-columns: repeat(1,1fr);
   }
 `;
 

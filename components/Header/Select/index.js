@@ -5,7 +5,7 @@ import * as S from "./styled";
 const Select = ({ search, setAtom, searchView, setSearchView, setInput }) => {
   return (
     <S.Wrapper searchView={searchView}>
-      <S.Select>
+      <S.Select searchView={searchView}>
         {search.map((_, index) => {
           if (_) {
             const element = db[Number(index)];
