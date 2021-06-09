@@ -6,5 +6,11 @@ export const Wrapper = styled.div`
   border-left: 2px solid #62656a;
   display: flex;
   flex-direction: column;
+
+  @media(max-width: 900px) {
+    width: 100%;
+    border: none;
+    height: auto;
+  }
 `;
 ''

@@ -92,7 +92,7 @@ const Properties = ({atom}) => {
             <S.Select>
               <S.Option onClick={() => {setMelt(atom.melt)}}>K° (Kelvin)</S.Option>
               <S.Option onClick={() => {setMelt((Number(atom.melt) - 273.15))}}>C° (Celsius)</S.Option>
-              <S.Option onClick={() => {setMelt(((((Number(atom.melt)-273.15)/5)*9)+32).toFixed(10))}}>F° (Fahrenheit)</S.Option>
+              <S.Option onClick={() => {setMelt(((((Number(atom.melt)-273.15)/5)*9)+32).toFixed(5))}}>F° (Fahrenheit)</S.Option>
             </S.Select>
           </>
         ) : 'Indefinido'}
@@ -105,7 +105,7 @@ const Properties = ({atom}) => {
             <S.Select>
               <S.Option onClick={() => {setBoil(atom.boil)}}>K° (Kelvin)</S.Option>
               <S.Option onClick={() => {setBoil((Number(atom.boil) - 273.15))}}>C° (Celsius)</S.Option>
-              <S.Option onClick={() => {setBoil(((((Number(atom.boil)-273.15)/5)*9)+32).toFixed(10))}}>F° (Fahrenheit)</S.Option>
+              <S.Option onClick={() => {setBoil(((((Number(atom.boil)-273.15)/5)*9)+32).toFixed(5))}}>F° (Fahrenheit)</S.Option>
             </S.Select>
           </>
         ) : 'Indefinido'}

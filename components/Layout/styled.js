@@ -9,7 +9,7 @@ export const LayoutWrapper = styled.div`
 export const LayoutMain = styled.main`
   display: flex;
 
-  @media(max-width: 450px) {
+  @media(max-width: 900px) {
     flex-direction: column;
   }
 `;

@@ -8,6 +8,12 @@ export const Wrapper = styled.ul`
   height: calc(100vh - 14rem);
   overflow-y: auto;
   scrollbar-width: thin;
+  @media(max-width: 900px) {
+    height: inherit;
+    overflow-y: inherit;
+    padding: 0 1rem .7rem;
+    margin: .8rem;
+  }
 `;
 
 export const Item = styled.li`
@@ -17,6 +23,10 @@ export const Item = styled.li`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+
+  @media(max-width: 770px) {
+    font-size: .9rem;
+  }
 `;
 
 export const Title = styled.span`
@@ -35,6 +45,9 @@ export const Divider = styled.h3`
   padding: 1.5rem 0 .5rem;
   border-bottom: 2px #585d65 solid;
   width: 100%;
+  @media(max-width: 770px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Unit = styled.span`

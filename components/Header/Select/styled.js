@@ -21,6 +21,10 @@ export const Select = styled.div`
   overflow: auto;
   max-height: calc(100vh - 167px);
   scrollbar-width: thin;
+ 
+  @media(max-width: 1300px) {
+    grid-template-columns: repeat(2,1fr);
+  }
 `;
 
 export const Element = styled.div`

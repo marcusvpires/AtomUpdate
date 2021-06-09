@@ -7,7 +7,7 @@ export const Wrapper = styled.section`
   position: relative;
   overflow: hidden;
 
-  @media(max-width: 450px) {
+  @media(max-width: 900px) {
     width: 100vw;
     height: 100vw;
   }
@@ -39,7 +39,7 @@ export const Atom = styled.div`
   left: 0;
   transform: ${props => `scale(${props.size})`};
 
-  @media(max-width: 450px) {
+  @media(max-width: 900px) {
     width: 100vw;
     height: 100vw;
   }
@@ -70,7 +70,7 @@ export const Layer = styled.div`
   animation: ${rotate} ${props => props.play ? '8s' : '0s'} linear infinite;
   animation-direction: ${props => props.direction};
 
-  @media(max-width: 450px) {
+  @media(max-width: 900px) {
     width: 100vw;
     height: 100vw;
   }
@@ -86,6 +86,11 @@ export const Circuit = styled.div`
   transform: translate(-50%, -50%);
   border: 2px dashed #5c97ff;
   border-radius: 50%;
+
+  @media(max-width: 900px) {
+    width: ${props => `calc(((${props.index} * 100vw) / 7) + 20px)` };
+    height: ${props => `calc(((${props.index} * 100vw) / 7) + 20px)` };
+  }
 `
 
 export const ElectronPath  = styled.div`
@@ -97,6 +102,11 @@ export const ElectronPath  = styled.div`
   left: 50%;
   transform: translate(-50%, -50%) ${props => `rotate(${props.rotate}deg)`};
   border-radius: 50%;
+  
+  @media(max-width: 900px) {
+    width: ${props => `calc(((${props.index} * 100vw) / 7) + 20px)` };
+    height: ${props => `calc(((${props.index} * 100vw) / 7) + 20px)` };
+  }
 `
 
 export const Electron  = styled.div`
