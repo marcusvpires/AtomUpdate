@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   align-items: center;
   color: #dee0e4;
   justify-content: space-between;
+  position: relative;
 
   @media(max-width: 450px) { display: none; }
 `;
