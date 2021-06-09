@@ -192,40 +192,23 @@ const Properties = ({ atom }) => {
           <>
             <S.Value>{radius}</S.Value>
             <S.Unit>pm</S.Unit>
-            <S.Select>
+            <S.Select
+              value={radius}
+              onChange={(ev) => {
+                setRadius(ev.target.value);
+              }}
+            >
               {atom.radius.calculated && (
-                <S.Option
-                  onClick={() => {
-                    setRadius(atom.radius.calculated);
-                  }}
-                >
-                  Calculado
-                </S.Option>
+                <S.Option value={atom.radius.calculated}>Calculado</S.Option>
               )}
               {atom.radius.empirical && (
-                <S.Option
-                  onClick={() => {
-                    setRadius(atom.radius.empirical);
-                  }}
-                >
-                  Empírico
-                </S.Option>
+                <S.Option value={atom.radius.empirical}>Empírico</S.Option>
               )}
               {atom.radius.covalent && (
-                <S.Option
-                  onClick={() => {
-                    setRadius(atom.radius.covalent);
-                  }}
-                >
-                  Covalente
-                </S.Option>
+                <S.Option value={atom.radius.covalent}>Covalente</S.Option>
               )}
               {atom.radius.vanderwaals && (
-                <S.Option
-                  onClick={() => {
-                    setRadius(atom.radius.vanderwaals);
-                  }}
-                >
+                <S.Option value={atom.radius.vanderwaals}>
                   Van der Waals
                 </S.Option>
               )}
