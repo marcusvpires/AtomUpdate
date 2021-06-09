@@ -24,7 +24,6 @@ const Atom = ({ layers }) => {
             for (let num = 1; num <= amount; num++) {
               electrons.push(angle * num)
             }
-            console.log(electrons)
             return (
               <S.Layer play={play} direction={index & 1 ? 'normal' : 'reverse'} key={index + amount}>
                 <S.Circuit index={index + 1} />
