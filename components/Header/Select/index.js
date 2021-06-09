@@ -11,7 +11,7 @@ const Select = ({ search }) => {
           const element = db[Number(index)]
           console.log(element)
           return (
-            <S.Element>
+            <S.Element key={index} onClick={() => {console.log('Átomo:', index)}}>
               <S.Symbol><span>{element.symbol}</span></S.Symbol>
               {element.name}
             </S.Element>
