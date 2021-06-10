@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from 'react-ga';
 import Head from 'next/head'
 
 import Layout from "../components/Layout";
@@ -47,6 +48,11 @@ export default function Home() {
     isotopes: 7,
     name: "Hidrogênio",
   });
+
+  React.useEffect(() => {
+    ReactGA.initialize('UA-196455787-2');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, [])
   
   return (
     <Layout>
