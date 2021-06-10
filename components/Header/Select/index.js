@@ -1,8 +1,16 @@
 import React from "react";
+import ReactGA from 'react-ga';
+
 import db from "../../../db";
 import * as S from "./styled";
 
 const Select = ({ search, setAtom, searchView, setSearchView, setInput }) => {
+  const selectAtom = (name) => {
+    ReactGA.event({
+      category: 'Select atom',
+      action: `Atom name: ${name}`
+    });
+  }
   return (
     <S.Wrapper searchView={searchView}>
       <S.Select searchView={searchView}>
@@ -13,6 +21,7 @@ const Select = ({ search, setAtom, searchView, setSearchView, setInput }) => {
               <S.Element
                 key={index}
                 onClick={() => {
+                  selectAtom(element.name)
                   setAtom(element);
                   setSearchView(false);
                   setInput('');
