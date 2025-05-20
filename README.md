@@ -1,4 +1,4 @@
-![Demonstration](public/readme/question-helper.gif)
+![Demonstration](./public/preview.gif)
 
 <br />
 
